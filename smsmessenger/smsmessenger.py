@@ -6,16 +6,20 @@ from queue import Queue
 import random
 from threading import Lock
 from threading import Thread
+from smsmessenger.secret import
+
+
+from smsmessenger.secret import USERNAME
+from smsmessenger.secret import PASSWORD
+from smsmessenger.secret import FROMADDR
+from smsmessenger.secret import TOADDRS
+from smsmessenger.secret import SMTP_SERVER
+from smsmessenger.secret import RECIEVE_PORT
+from smsmessenger.secret import SEND_PORT
+from smsmessenger.secret import MESSAGE_INTERVAL
+
 import pdb
 
-USERNAME = 'secretary.alert'
-PASSWORD = 'greystoke'
-FROMADDR = 'secretary.alert@gmail.com'
-TOADDRS  = '5102929383@vtext.com'
-SMTP_SERVER = "imap.gmail.com"
-RECIEVE_PORT = 993
-SEND_PORT = 587
-MESSAGE_INTERVAL = 120
 
 callbacks = {}
 
