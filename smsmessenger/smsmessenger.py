@@ -27,7 +27,7 @@ def setupModule(username, password, fromaddrs, toaddrs, smtp_server, recieve_por
     global RECIEVE_PORT
     global SEND_PORT
     global MESSAGE_INTERVAL
-    global check_rate_queue = InfiniteQueue(MESSAGE_INTERVAL)
+    global check_rate_queue
 
     USERNAME = username
     PASSWORD = password
