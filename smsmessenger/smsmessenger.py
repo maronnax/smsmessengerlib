@@ -16,6 +16,7 @@ SMTP_SERVER = None
 RECIEVE_PORT = None
 SEND_PORT = None
 MESSAGE_INTERVAL = None
+check_rate_queue = InfiniteQueue(120)
 
 def setupModule(username, password, fromaddrs, toaddrs, smtp_server, recieve_port, send_port, message_interval):
     global USERNAME
@@ -26,6 +27,7 @@ def setupModule(username, password, fromaddrs, toaddrs, smtp_server, recieve_por
     global RECIEVE_PORT
     global SEND_PORT
     global MESSAGE_INTERVAL
+    global check_rate_queue = InfiniteQueue(MESSAGE_INTERVAL)
 
     USERNAME = username
     PASSWORD = password
@@ -35,6 +37,7 @@ def setupModule(username, password, fromaddrs, toaddrs, smtp_server, recieve_por
     RECIEVE_PORT = recieve_port
     SEND_PORT = send_port
     MESSAGE_INTERVAL = message_interval
+    check_rate_queue = InfiniteQueue(MESSAGE_INTERVAL)
     return
 
 
@@ -53,7 +56,7 @@ class InfiniteQueue(Queue):
         value = super(InfiniteQueue, self).get(*kwds, **args)
         return value
 
-check_rate_queue = InfiniteQueue(MESSAGE_INTERVAL)
+
 
 class Globals:
     def __init__(self):
