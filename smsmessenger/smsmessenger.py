@@ -38,10 +38,6 @@ def setupModule(username, password, fromaddrs, toaddrs, smtp_server, recieve_por
     return
 
 
-
-import pdb
-
-
 callbacks = {}
 
 class InfiniteQueue(Queue):
@@ -143,6 +139,7 @@ def sendTextMessage(message, callback = None, args = ()):
 
     # The actual mail send
     server = smtplib.SMTP('{}:{}'.format(SMTP_SERVER, SEND_PORT))
+    server.ehlo()
     server.starttls()
     server.login(USERNAME, PASSWORD)
     server.sendmail(FROMADDR, TOADDRS, message)
@@ -174,6 +171,14 @@ def main():
         msg_ndx += 1
         time.sleep(30)
 
+    return
+
+def run():
+    thread = Thread(target = main)
+    thread.start()
+
+def end():
+    module_globals.quit = True
     return
 
 
