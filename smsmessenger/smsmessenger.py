@@ -178,8 +178,10 @@ def main():
     return
 
 def run():
-    thread = Thread(target = main)
+    thread = Thread(target = checkMessagesFunction, args = (module_globals, ))
     thread.start()
+    # thread = Thread(target = main)
+    # thread.start()
 
 def end():
     module_globals.quit = True
