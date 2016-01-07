@@ -9,14 +9,27 @@ from threading import Thread
 from smsmessenger.secret import
 
 
-from smsmessenger.secret import USERNAME
-from smsmessenger.secret import PASSWORD
-from smsmessenger.secret import FROMADDR
-from smsmessenger.secret import TOADDRS
-from smsmessenger.secret import SMTP_SERVER
-from smsmessenger.secret import RECIEVE_PORT
-from smsmessenger.secret import SEND_PORT
-from smsmessenger.secret import MESSAGE_INTERVAL
+USERNAME = None
+PASSWORD = None
+FROMADDR = None
+TOADDRS = None
+SMTP_SERVER = None
+RECIEVE_PORT = None
+SEND_PORT = None
+MESSAGE_INTERVAL = None
+
+def setupModule(username, password, fromaddrs, toaddrs, smtp_server, recieve_port, send_port, message_interval):
+    USERNAME = username
+    PASSWORD = password
+    FROMADDR = fromaddrs
+    TOADDRS = toaddrs
+    SMTP_SERVER = smtp_server
+    RECIEVE_PORT = recieve_port
+    SEND_PORT = send_port
+    MESSAGE_INTERVAL = message_interval
+    return
+
+
 
 import pdb
 

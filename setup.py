@@ -4,13 +4,14 @@ from distutils.core import setup
 setup(
     name='smsmessenger',
     version='0.0.1',
+    description='A utility for sending sms messages and providing facilities for callbacks on SMS responses',
     author='Nathan Addy',
     author_email='nathan.addy@gmail.com',
     packages=['smsmessenger'],
-    url='http://bitbucket.org/bruno/django-geoportail',
-    license='BSD licence, see LICENCE.txt',
-    description='Add maps and photos from the French National Geographic' + \
-                ' Institute to GeoDjango',
-    long_description=open('README.txt').read(),
-    zip_safe=False,
+    url='https://github.com/maronnax/smsmessengerlib',
+    license='BSD license, see LICENCE.txt',
+    classifiers = [
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5']
 )
