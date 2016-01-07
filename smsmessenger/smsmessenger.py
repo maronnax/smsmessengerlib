@@ -16,6 +16,20 @@ SMTP_SERVER = None
 RECIEVE_PORT = None
 SEND_PORT = None
 MESSAGE_INTERVAL = None
+
+class InfiniteQueue(Queue):
+    def __init__(self, default_value, *kwds, **args):
+        self.default_value = default_value
+        super(InfiniteQueue, self).__init__(*kwds, **args)
+
+    def get(self, *kwds, **args):
+        is_empty = super(InfiniteQueue, self).empty()
+        if is_empty:
+            return self.default_value
+
+        value = super(InfiniteQueue, self).get(*kwds, **args)
+        return value
+
 check_rate_queue = InfiniteQueue(120)
 
 def setupModule(username, password, fromaddrs, toaddrs, smtp_server, recieve_port, send_port, message_interval):
@@ -42,19 +56,6 @@ def setupModule(username, password, fromaddrs, toaddrs, smtp_server, recieve_por
 
 
 callbacks = {}
-
-class InfiniteQueue(Queue):
-    def __init__(self, default_value, *kwds, **args):
-        self.default_value = default_value
-        super(InfiniteQueue, self).__init__(*kwds, **args)
-
-    def get(self, *kwds, **args):
-        is_empty = super(InfiniteQueue, self).empty()
-        if is_empty:
-            return self.default_value
-
-        value = super(InfiniteQueue, self).get(*kwds, **args)
-        return value
 
 
 
