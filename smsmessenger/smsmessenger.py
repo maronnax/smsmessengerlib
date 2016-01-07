@@ -6,7 +6,7 @@ from queue import Queue
 import random
 from threading import Lock
 from threading import Thread
-from smsmessenger.secret import
+# from smsmessenger.secret import
 
 
 USERNAME = None
