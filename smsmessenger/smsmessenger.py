@@ -8,7 +8,6 @@ from threading import Lock
 from threading import Thread
 # from smsmessenger.secret import
 
-
 USERNAME = None
 PASSWORD = None
 FROMADDR = None
@@ -19,6 +18,15 @@ SEND_PORT = None
 MESSAGE_INTERVAL = None
 
 def setupModule(username, password, fromaddrs, toaddrs, smtp_server, recieve_port, send_port, message_interval):
+    global USERNAME
+    global PASSWORD
+    global FROMADDR
+    global TOADDRS
+    global SMTP_SERVER
+    global RECIEVE_PORT
+    global SEND_PORT
+    global MESSAGE_INTERVAL
+
     USERNAME = username
     PASSWORD = password
     FROMADDR = fromaddrs
