@@ -93,7 +93,7 @@ def checkMessagesFunction(thread_globals):
      while not thread_globals.quit:
          checkNewMessages()
          interval = check_rate_queue.get()
-         print("Sleeping for {} seconds.".format(interval))
+         # print("Sleeping for {} seconds.".format(interval))
          time.sleep(interval)
 
 def checkMessagesOnce(wait_time):
